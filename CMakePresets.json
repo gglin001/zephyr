@@ -26,6 +26,7 @@
       "cacheVariables": {
         "ZEPHYR_TOOLCHAIN_VARIANT": "cross-compile",
         // TODO: remove hardcode
+        // TODO: add a example using llvm toolchain
         "CROSS_COMPILE": "${fileDir}/_demos/riscv64-zephyr-elf/bin/riscv64-zephyr-elf-",
         "SYSROOT_DIR": "${fileDir}/_demos/riscv64-zephyr-elf/riscv64-zephyr-elf",
         "BOARD": "qemu_riscv64",
