@@ -1,0 +1,35 @@
+{
+  "version": 8,
+  "configurePresets": [
+    {
+      "name": "common",
+      "description": "common",
+      "generator": "Ninja",
+      "environment": {
+        "ZEPHYR_BASE": "${fileDir}"
+      },
+      "binaryDir": "${fileDir}/build",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_INSTALL_PREFIX": "${fileDir}/build/install",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": true,
+        // "CMAKE_C_COMPILER": "/usr/bin/clang",
+        // "CMAKE_CXX_COMPILER": "/usr/bin/clang++",
+        // "CMAKE_SYSTEM_NAME": "Generic",
+        "AA": "BB"
+      }
+    },
+    {
+      "name": "hello_world_riscv",
+      "description": "hello_world_riscv",
+      "inherits": "common",
+      "cacheVariables": {
+        "ZEPHYR_TOOLCHAIN_VARIANT": "cross-compile",
+        "CROSS_COMPILE": "${fileDir}/_demos/riscv64-zephyr-elf/bin/riscv64-zephyr-elf-",
+        "SYSROOT_DIR": "${fileDir}/_demos/riscv64-zephyr-elf/riscv64-zephyr-elf",
+        "BOARD": "qemu_riscv64",
+        "AA": "BB"
+      }
+    }
+  ]
+}
