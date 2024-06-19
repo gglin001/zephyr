@@ -7,6 +7,7 @@ cmake --build build
 ###############################################################################
 
 # build/zephyr/zephyr.elf
+# riscv64-zephyr-elf-objdump -d build/zephyr/zephyr.elf > build/zephyr/zephyr.elf.dasm
 
 ###############################################################################
 
