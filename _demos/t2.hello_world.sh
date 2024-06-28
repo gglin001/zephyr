@@ -13,14 +13,14 @@ cmake --build build
 
 args=(
   -machine virt
-  # -cpu rv64,g=true,v=true,vext_spec=v1.0
+  # -cpu rv64,v=true,vext_spec=v1.0
   -cpu rv64
   # -semihosting-config enable=on # semihost
   -m 256
   -nographic
   -bios none
-  # -monitor none
-  # -serial none
+  -monitor none
+  -serial stdio
   #
   # -d out_asm
   # -d in_asm
