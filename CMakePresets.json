@@ -3,7 +3,6 @@
   "configurePresets": [
     {
       "name": "common",
-      "description": "common",
       "generator": "Ninja",
       "environment": {
         "ZEPHYR_BASE": "${fileDir}"
@@ -21,16 +20,33 @@
     },
     {
       "name": "hello_world_riscv",
-      "description": "hello_world_riscv",
       "inherits": "common",
       "cacheVariables": {
         "ZEPHYR_TOOLCHAIN_VARIANT": "cross-compile",
-        // TODO: remove hardcode
-        // TODO: add a example using llvm toolchain
-        "CROSS_COMPILE": "${fileDir}/_demos/riscv64-zephyr-elf/bin/riscv64-zephyr-elf-",
-        "SYSROOT_DIR": "${fileDir}/_demos/riscv64-zephyr-elf/riscv64-zephyr-elf",
-        "BOARD": "qemu_riscv64",
-        "AA": "BB"
+        // `${fileDir}/riscv64-zephyr-elf` is https://github.com/zephyrproject-rtos/sdk-ng
+        "CROSS_COMPILE": "${fileDir}/riscv64-zephyr-elf/bin/riscv64-zephyr-elf-",
+        "SYSROOT_DIR": "${fileDir}/riscv64-zephyr-elf/riscv64-zephyr-elf",
+        "BOARD": "qemu_riscv64"
+      }
+    },
+    {
+      "name": "hello_world_riscv_clang",
+      "inherits": "common",
+      "cacheVariables": {
+        "ZEPHYR_TOOLCHAIN_VARIANT": "llvm",
+        "LLVM_TOOLCHAIN_PATH": "${fileDir}/riscv-toolchain",
+        // // `${fileDir}/riscv-toolchain` is https://github.com/gglin001/riscv-toolchain
+        // "CMAKE_C_COMPILER": "${fileDir}/riscv-toolchain/bin/clang",
+        // "CMAKE_CXX_COMPILER": "${fileDir}/riscv-toolchain/bin/clang++",
+        // "CMAKE_AR": "${fileDir}/riscv-toolchain/bin/llvm-ar",
+        // "CMAKE_RANLIB": "${fileDir}/riscv-toolchain/bin/llvm-ranlib",
+        // "CMAKE_STRIP": "${fileDir}/riscv-toolchain/bin/llvm-strip",
+        // "CMAKE_LINKER": "${fileDir}/riscv-toolchain/bin/ld.lld",
+        // "CMAKE_SYSROOT": "${fileDir}/riscv-toolchain/lib/clang-runtimes/riscv64-unknown-elf/rv64ima/lp64",
+        "SYSROOT_DIR": "${fileDir}/riscv-toolchain/lib/clang-runtimes/riscv64-unknown-elf/rv64ima/lp64",
+        "CMAKE_C_FLAGS": "--target=riscv64-unknown-elf -mcmodel=medany -O2 -march=rv64ima -mabi=lp64 -nostdlib -lc -lm -lclang_rt.builtins -lcrt0-semihost -lsemihost -T${fileDir}/riscv.ld",
+        "CMAKE_SYSTEM_NAME": "Generic",
+        "BOARD": "qemu_riscv64"
       }
     }
   ]

@@ -91,3 +91,6 @@ ModulesMaintainers.txt
 Nits.txt
 Pylint.txt
 YAMLLint.txt
+
+riscv64-zephyr-elf
+riscv-toolchain
