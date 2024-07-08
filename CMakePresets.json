@@ -41,7 +41,6 @@
         // `${fileDir}/riscv-toolchain` is https://github.com/gglin001/riscv-toolchain
         "LLVM_TOOLCHAIN_PATH": "${fileDir}/riscv-toolchain",
         "CMAKE_SYSROOT": "${fileDir}/riscv-toolchain/lib/clang-runtimes/riscv64-unknown-elf/rv64ima/lp64",
-        // "SYSROOT_DIR": "${fileDir}/riscv-toolchain/lib/clang-runtimes/riscv64-unknown-elf",
         // "CMAKE_C_FLAGS": "--target=riscv64-unknown-elf -mcmodel=medany -O2 -march=rv64ima -mabi=lp64 -nostdlib -lc -lm -lclang_rt.builtins -lcrt0-semihost -lsemihost -T${fileDir}/riscv.ld",
         "CMAKE_C_FLAGS": "--target=riscv64-unknown-elf -mcmodel=medany -O2 -march=rv64ima -mabi=lp64",
         "BOARD": "qemu_riscv64"
