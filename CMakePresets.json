@@ -17,7 +17,7 @@
       }
     },
     {
-      "name": "hello_world_riscv",
+      "name": "riscv_gcc",
       "inherits": "common",
       "cacheVariables": {
         "BOARD": "qemu_riscv64",
@@ -28,7 +28,7 @@
       }
     },
     {
-      "name": "hello_world_riscv_clang",
+      "name": "riscv_clang",
       "inherits": "common",
       "cacheVariables": {
         "CMAKE_SYSTEM_NAME": "Generic",
@@ -41,6 +41,7 @@
         "CONFIG_PICOLIBC": "y",
         "CONFIG_PICOLIBC_USE_MODULE": "y",
         "CONFIG_SEMIHOST": "y",
+        "CONFIG_POSIX_API": "y",
         // `${fileDir}/riscv-toolchain` is https://github.com/gglin001/riscv-toolchain
         "LLVM_TOOLCHAIN_PATH": "${fileDir}/riscv-toolchain",
         "CMAKE_SYSROOT": "${fileDir}/riscv-toolchain/lib/clang-runtimes/riscv64-unknown-elf/rv64ima/lp64",

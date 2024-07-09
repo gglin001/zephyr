@@ -1,0 +1,35 @@
+###############################################################################
+
+cmake --preset riscv_gcc -S samples/hello_world
+
+cmake --build build
+
+###############################################################################
+
+# build/zephyr/zephyr.elf
+# riscv64-zephyr-elf-objdump -d build/zephyr/zephyr.elf > build/zephyr/zephyr.elf.dasm
+
+###############################################################################
+
+args=(
+  -machine virt
+  # -cpu rv64,v=true,vext_spec=v1.0
+  -cpu rv64
+  # -semihosting-config enable=on # semihost
+  -m 256
+  -nographic
+  -bios none
+  -monitor none
+  -serial stdio
+  #
+  # -d out_asm
+  # -d in_asm
+  # -d cpu
+  # -d exec
+  # -d op
+  #
+  -kernel build/zephyr/zephyr.elf
+)
+qemu-system-riscv64 "${args[@]}"
+
+###############################################################################
