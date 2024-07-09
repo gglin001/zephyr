@@ -12,7 +12,8 @@
         "CMAKE_BUILD_TYPE": "Release",
         "CMAKE_INSTALL_PREFIX": "${fileDir}/build/install",
         "CMAKE_EXPORT_COMPILE_COMMANDS": true,
-        "ZEPHYR_TOOLCHAIN_CAPABILITY_CACHE_DIR": "${fileDir}/build/toolchain_cache"
+        "ZEPHYR_TOOLCHAIN_CAPABILITY_CACHE_DIR": "${fileDir}/build/toolchain_cache",
+        "NO_BUILD_TYPE_WARNING": true
       }
     },
     {
