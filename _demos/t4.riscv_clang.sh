@@ -21,6 +21,8 @@ args=(
   -bios none
   -monitor none
   -serial stdio
+  # -serial file:qemu.log
+  # -serial none
   #
   # -d out_asm
   # -d in_asm
